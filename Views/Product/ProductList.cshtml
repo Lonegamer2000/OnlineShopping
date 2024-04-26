@@ -1,0 +1,57 @@
+﻿@model IEnumerable<onlineshopping.Models.Product>
+
+@{
+    ViewData["Title"] = "Productlist";
+}
+
+<h1>Product List</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.product_icon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                
+                @Html.DisplayFor(modelItem => item.Title)
+               
+
+            
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.description)
+            </td>
+
+            <td>
+                    <img src="Images/@item.product_icon" height="100" width="100"></img>
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.Category.Name)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
